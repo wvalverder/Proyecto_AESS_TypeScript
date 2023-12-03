@@ -1,35 +1,52 @@
 "use strict";
-var taskManager = /** @class */ (function () {
-    function taskManager() {
-        this.task = [];
-    }
-    taskManager.prototype.addTask = function (description) {
-        var newTask = {
+/*interface Task {
+    id: number;
+    description: string;
+    completed: boolean;
+}
+
+class taskManager<T extends Task> {
+    private task: T[] = [];
+    
+    addTask(description:string):void {
+        const newTask: T = {
             id: this.task.length + 1,
-            description: description,
+            description,
             completed: false,
-        };
+        } as T;
         this.task.push(newTask);
         this.displayTask();
-    };
-    taskManager.prototype.displayTask = function () {
-        var taskListElement = document.getElementById("task-list");
-        if (taskListElement) {
+    }
+
+    displayTask(): void {
+        const taskListElement = document.getElementById("task-list");
+        if(taskListElement) {
             taskListElement.innerHTML = "";
-            this.task.forEach(function (task) {
-                var listItem = document.createElement("li");
-                listItem.textContent = "".concat(task.id, ".").concat(task.description, ".").concat(task.completed ? "Completada" : "Pendiente");
+            this.task.forEach((task) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${task.id}.${task.description}.${task.completed ? "Completada" : "Pendiente"}`;
                 taskListElement.appendChild(listItem);
-            });
+            })
         }
-    };
-    return taskManager;
-}());
-var TaskManager = new taskManager();
-function addTask() {
-    var taskInput = document.getElementById("tasks-input");
-    if (taskInput && taskInput.value.trim() !== "") {
+    }
+}
+
+const TaskManager = new taskManager<Task>();
+
+function addTask():void {
+    const taskInput = document.getElementById("tasks-input") as HTMLInputElement;
+    if(taskInput && taskInput.value.trim() !== "") {
         TaskManager.addTask(taskInput.value.trim());
         taskInput.value = "";
     }
+}*/
+function imprimirHolaMundo() {
+    var mensaje = "Hola Mundo";
+    var elementoP = document.getElementById("mensaje");
+    if (elementoP) {
+        elementoP.textContent = mensaje;
+    }
 }
+window.onload = function () {
+    imprimirHolaMundo();
+};

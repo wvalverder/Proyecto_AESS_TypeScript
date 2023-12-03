@@ -1,4 +1,4 @@
-interface Task {
+/*interface Task {
     id: number;
     description: string;
     completed: boolean;
@@ -38,4 +38,17 @@ function addTask():void {
         TaskManager.addTask(taskInput.value.trim());
         taskInput.value = "";
     }
+}*/
+
+function imprimirHolaMundo(): void {
+    const mensaje: string = "Hola Mundo";
+    const elementoP: HTMLParagraphElement = document.getElementById("mensaje") as HTMLParagraphElement;
+    if (elementoP) {
+        elementoP.textContent = mensaje;
+    }
 }
+
+
+window.onload = () => {
+    imprimirHolaMundo();
+};
