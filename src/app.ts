@@ -33,7 +33,7 @@ class taskManager<T extends Task> {
 const TaskManager = new taskManager<Task>();
 
 function addTask():void {
-    const taskInput = document.getElementById("task-input") as HTMLInputElement;
+    const taskInput = document.getElementById("tasks-input") as HTMLInputElement;
     if(taskInput && taskInput.value.trim() !== "") {
         TaskManager.addTask(taskInput.value.trim());
         taskInput.value = "";
